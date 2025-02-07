@@ -3,6 +3,15 @@ const ctx = canvas.getContext('2d');
 const scoreDisplay = document.getElementById('score');
 const restartButton = document.getElementById('restartButton');
 
+const upButton = document.getElementById('upButton');
+const leftButton = document.getElementById('leftButton');
+const downButton = document.getElementById('downButton');
+const rightButton = document.getElementById('rightButton');
+
+// Canvas boyutunu ayarla
+canvas.width = Math.min(window.innerWidth * 0.9, 400);
+canvas.height = canvas.width;
+
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
 
@@ -87,6 +96,21 @@ function resetGame() {
     placeFood();
 }
 
+// Dokunmatik kontroller
+upButton.addEventListener('click', () => {
+    if (direction.y === 0) direction = { x: 0, y: -1 };
+});
+leftButton.addEventListener('click', () => {
+    if (direction.x === 0) direction = { x: -1, y: 0 };
+});
+downButton.addEventListener('click', () => {
+    if (direction.y === 0) direction = { x: 0, y: 1 };
+});
+rightButton.addEventListener('click', () => {
+    if (direction.x === 0) direction = { x: 1, y: 0 };
+});
+
+// Klavye kontrolleri
 document.addEventListener('keydown', event => {
     switch (event.key) {
         case 'ArrowUp':
