@@ -15,6 +15,7 @@ body {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
 }
 
 h1 {
@@ -28,6 +29,8 @@ canvas {
     border: 2px solid #ff6f61;
     border-radius: 10px;
     background-color: #f0f0f0;
+    max-width: 100%;
+    height: auto;
 }
 
 .score-board {
@@ -35,6 +38,47 @@ canvas {
     font-size: 20px;
     font-weight: bold;
     color: #333;
+}
+
+.controls {
+    margin-top: 20px;
+    display: grid;
+    grid-template-areas:
+        ". up ."
+        "left down right";
+    gap: 10px;
+    justify-content: center;
+}
+
+.controls button {
+    padding: 15px;
+    font-size: 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #ff3b2f;
+}
+
+#upButton {
+    grid-area: up;
+}
+
+#leftButton {
+    grid-area: left;
+}
+
+#downButton {
+    grid-area: down;
+}
+
+#rightButton {
+    grid-area: right;
 }
 
 #restartButton {
